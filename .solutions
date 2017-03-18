@@ -1,0 +1,75 @@
+# Exercise 1
+
+git checkout -b branch1
+vim dog.rb
+git add dog.rb
+git commit -m 'Added dog.rb'
+git checkout -b branch2
+vim cat.rb
+git add cat.rb
+git commit -m 'Added cat.rb'
+git checkout -b branch3
+vim apple.js
+git add apple.js
+git commit -m 'Wrong commit name'
+git commit --amend
+
+# Exercise 2
+
+git checkout branch2
+git branch -u branch1
+git checkout branch3
+git branch -u branch2
+git checkout branch1
+vim dog.rb
+git add dog.rb
+git commit -m 'Added color to dog class'
+git checkout branch2
+git pull --rebase
+git checkout branch3
+git pull --rebase
+
+# Exercise 3
+
+git checkout branch2
+vim cat.rb
+git add cat.rb
+git commit -m 'Added color to cat'
+git branch -D branch2
+git checkout branch3
+git branch -u branch1
+git rebase -i HEAD~2
+git pull --rebase
+
+# Exercise 4
+
+vim lorem.txt
+git add lorem.txt
+git commit -m 'Added lorem'
+git checkout -b branch4
+git checkout branch1
+git reset --hard HEAD~1
+
+# Exercise 5
+
+git checkout branch4
+vim cat.rb
+vim dog.rb
+vim lorem.txt
+git add lorem.txt
+git commit -m "Unfinished changes"
+git checkout branch1
+git add cat.rb
+git commit -m 'Modified cat'
+git stash save
+git checkout branch4
+git reset HEAD~1
+
+# Exercise 6
+
+git diff branch1 -- cat.rb
+git show branch1:cat.rb
+git add lorem.txt
+git commit -m 'Modified lorem'
+git checkout branch3
+git show branch4:lorem.txt
